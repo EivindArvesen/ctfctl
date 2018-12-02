@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+case "$1" in
+    start )
+	git clone --depth 1 https://github.com/bkimminich/juice-shop.git > /dev/null 2>&1
+	PREFIX=my
+	KEY=$(echo $RANDOM | md5)
+	ENV=ctf
+        echo "Starting CTF..."
+        heroku login
+        mkdir deployment
+        cd deployment
+	echo "Using key $KEY"
+	echo "You can now set up your CTFd instance"
+        for i in {1..10}; do
+            cp -r ../juice-shop ctf-$i
+            cd ctf-$i
+            heroku create $PREFIX-ctf-$i
+            heroku config:add CTF_KEY=$KEY NODE_ENV=$ENV
+            git push heroku master
+            cd ..
+        done
+        cd ..
+        ;;
+    keepup )
+        echo "Will now continuously ping each instance every 15 min. to keep dynos up until process is killed (ctrl+c)..."
+        while [ 1 ]
+        do
+            for i in {1..10}; do
+                curl -L https://$PREFIX-ctf-$i.herokuapp.com/ >/dev/null 2>&1
+            done
+            sleep 900
+        done
+        ;;
+    stop )
+        echo "Stopping CTF..."
+        cd deployment
+        for i in {1..10}; do
+            cd ctf-$i
+            heroku apps:destroy $PREFIX-ctf-$i --confirm $PREFIX-ctf-$i
+            cd ..
+            rm -rf ctf-$i
+        done
+        cd ..
+        ;;
+    * )
+        echo "Arg not recognized..."
+        ;;
+esac
