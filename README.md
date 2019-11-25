@@ -20,10 +20,10 @@ Update the key in config.yml (maybe run `echo $RANDOM | md5` in a shell to gener
 The automated way: `./ctfctrl config` to generate a config for you.
 
 You can then go to [this fork of CTFd](https://github.com/EivindArvesen/CTFd) and click the "Deploy to Heroku"-button.
-Call the app something you'll remember (like "bouvet-ctfd"), and choose the region nearest you ("Europe"?), then click "Deploy app" - keeping the defaults for the rest of the fields.
+Call the app something you'll remember (like "company-ctfd"), and choose the region nearest you ("Europe"?), then click "Deploy app" - keeping the defaults for the rest of the fields.
 Deploying the app shouldn't take more than a few minutes.
 
-As soon as the app is deployed, click "Manage App", and then "Open app" (or just go [here](https://bouvet-ctfd.herokuapp.com))
+As soon as the app is deployed, click "Manage App", and then "Open app" (or just go [here](https://company-ctfd.herokuapp.com))
 
 _If you run into a bug where the app is not running, you will have to delete any postgres-instances and clear the env vars related to posgres._
 
