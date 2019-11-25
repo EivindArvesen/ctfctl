@@ -1,5 +1,9 @@
+#config.yml # Set "git update-index --assume-unchanged " instead
+
+# Don't track config zips
 *.zip
 
+# Don't track tmp- cache-, and work-files
 teams.txt
 deployment
 juice-shop
