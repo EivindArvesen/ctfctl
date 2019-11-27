@@ -8,7 +8,10 @@ Then pings every instance once every 15 minutes to keep the dynos alive.
 Eventually, all instances can be shut down.
 
 ## Dependencies
+Make sure you have [Node.js](https://nodejs.org/en/) installed.
+
 Install ctf-cli via `npm install -g juice-shop-ctf-cli`.
+
 You'll need the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
 
 ## Setting up your own CTF
@@ -23,7 +26,9 @@ You can then go to [this fork of CTFd](https://github.com/EivindArvesen/CTFd) an
 Call the app something you'll remember (like "company-ctfd"), and choose the region nearest you ("Europe"?), then click "Deploy app" - keeping the defaults for the rest of the fields.
 Deploying the app shouldn't take more than a few minutes.
 
-As soon as the app is deployed, click "Manage App", and then "Open app" (or just go [here](https://company-ctfd.herokuapp.com))
+As soon as the app is deployed, click "Manage App", and then "Open app".
+
+When the app is up and running, update the `CTFD`-variable in `ctfctrl`.
 
 _If you run into a bug where the app is not running, you will have to delete any postgres-instances and clear the env vars related to posgres._
 
@@ -35,7 +40,7 @@ You will now need to set up the CTF name and admin account again.
 
 ### Client Instances
 
-Now you can spin up instances of [Juice Shop](https://github.com/bkimminich/juice-shop)(anywhere, really) using your key as defined in config.yml
+Now you can spin up instances of [Juice Shop](https://github.com/bkimminich/juice-shop) (anywhere, really) using your key as defined in config.yml
 
 The automated way: `./ctfctrl start <number-of-instances>` to deploy randomly named instances to Heroku.
 
