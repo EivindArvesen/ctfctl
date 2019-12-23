@@ -48,11 +48,11 @@ As each instance as of now also has to build on Heroku, each instance will take 
 
 ### Let's Go!
 
-After spinning up everything, you should really open up another terminal, and run `./ctfctrl keepup` to continuously ping your scoreboard and every JuiceShop-instance every 15 minutes (in order to not have the Heroku apps die). This is particularly important for the CTFd scoreboard, as all state will be lost if it dies (as it currently writes to sqlite). You can run `./ctfctrl scoreboard` to keep only the scoreboard alive.
+After spinning up everything, you should really open up another terminal, and run `./ctfctl keepup` to continuously ping your scoreboard and every JuiceShop-instance every 15 minutes (in order to not have the Heroku apps die). This is particularly important for the CTFd scoreboard, as all state will be lost if it dies (as it currently writes to sqlite). You can run `./ctfctl scoreboard` to keep only the scoreboard alive.
 
 Tell your contestants to go to [the CTF Intro Startpage](https://eivindarvesen.github.io/intro-ctf-startpage/)
 
 ### Shutting down
 
-When it's all over, run `./ctfctrl stop` to bring down all client instances (JuiceShop).
+When it's all over, run `./ctfctl stop` to bring down all client instances (JuiceShop).
 You'll have to delete the CTFd-app manually on Heroku.
