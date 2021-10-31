@@ -2,6 +2,8 @@
 
 A very naive implementation of an automated CTF-setup.
 
+_ **Note:** This repo will does not neccessarily work any more (based on feedback in 2021). I have no time to provide to support for people that are unable to make it work, but won't exclude that I will look into gettings things up and running again at some point. _
+
 ## TLDR
 Spins up a CTFd- and several JuiceShop-instances on free Heroku dynos.
 Then pings every instance once every 15 minutes to keep the dynos alive.
